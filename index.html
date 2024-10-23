@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Alicia Silva</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="style.css" rel="stylesheet" />
+
+    </head>
+    <body class="text-bg-info bg-opacity-10">
+         <div class="collapse text-bg-info bg-opacity-100" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">Sobre mi</h4>
+                        <p class="text-white">Hola, soy Alicia Silva, estudiante de diseño de 5to año y apasionada por las ilustraciones, diseños gráficos, editoriales y animaciones 2D. Este portafolio es una recopilación de mis proyectos más destacados donde podrás explorar mi estilo, habilidades y el impacto que he logrado y colaborado. Me enfoco en la comprensión de las necesidades de las personas y atención a los detalles para asegurar que cada proyecto no solo sea visualmente atractivo, sino también funcional y efectivo. Espero que disfruten explorando mi trabajo. ¡Gracias por visitar!.</p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Contáctame</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="https://www.instagram.com/mari_hatayama/" target="_blank" class="text-white">Follow on Instagram</a></li>
+                            <li><a href="mailto:alicia.silva@uc.cl" class="text-white">Email me</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-info shadow-sm">
+            <div class="container">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon me-2" viewBox="0 0 16 16">
+                    <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"/>
+                    </svg>
+                    <strong>Portafolio</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+
+        <header class="container">
+            <h1 class="display-1 my-3"></h1>
+            <select class="form-select my-3">
+                <option value="todos">Portafolio de Diseño</option>
+                <option value="editorial">Portafolio de Diseño Editorial</option>
+                <option value="branding">Portafolio de Diseño de Branding</option>
+                <option value="visual">Portafolio de Diseño Visual</option>
+                <option value="juego">Portafolio de Diseño de Juego</option>
+            </select>
+
+        <div style="text-align: center;">
+            <div class="ratio ratio-16x9 mb-3 my-3" style="max-width: 520px; display: inline-block;">
+            <iframe width="320" height="180" src="https://www.youtube.com/embed/DnHpC6oj4wE?si=wkzpxu1dj1VKOuK7" title="YouTube video player" frameborder="400" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        </header>
+
+        <div class="container text-center">
+            <main class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-2 g-lg-3"></main> 
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+        <script>
+            //unas variables que no varían, que son constantes:
+
+            const nombre = "ALICIA SILVA";
+
+            const autoria = document.querySelector("h1");
+
+            autoria.innerHTML = nombre;
+
+            const principal = document.querySelector("main");
+
+            const seleccion = document.querySelector("select");
+
+            //acá voy por el JSON
+
+            async function astros() {
+                const consulta = await fetch("https://raw.githubusercontent.com/Ali-Mari/fotos/refs/heads/main/datos.json");
+                const data = await consulta.json();
+                console.log(data);
+
+                data.forEach((d, i) => (principal.innerHTML += 
+                    `<div class="${d.signo} col">
+                        <div class="card shadow-sm">
+                            <img src="${d.foto}" class="card-img-top" alt="${d.fecha}">
+                                <div class="card-body">
+                                <p class="card-text">
+                                     <a href="single.html?data=${i}" class="link-info
+                                        link-offset-2 link-offset-3-hover 
+                                        link-underline link-underline-opacity-0
+                                        link-underline-opacity-75-hover stretched-link">${d.nombre}</a>
+                                </p>
+                                <div class="d-flex justify-content-around align-items-center">
+                                    <small class="text-body-secondary">${d.signo}</small>
+                                    <small class="text-body-secondary">${d.fecha}</small>
+                                </div>
+                                </div>     
+                            </div>
+                    </div>`));
+
+                seleccionables();
+            }
+
+            astros().catch((error) => console.error(error));
+
+            //lo que sigue es una función que ejecuto dentro de astros()
+
+            var valor;
+
+            function seleccionables() {
+                seleccion.addEventListener("change", (e) => {
+                    document.querySelectorAll(".col").forEach((t) => t.classList.add("d-none"));
+                    valor = e.target.value;
+                    if (valor !== "todos") {
+                        document.querySelectorAll(`.${valor}`).forEach((t) => t.classList.remove("d-none"));
+                    } else {
+                        document.querySelectorAll("div").forEach((t) => t.classList.remove("d-none"));
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
